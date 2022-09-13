@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from 'site/components/home/home.component';
+import { LoginComponent } from 'site/components/login/login.component';
 
-const routes: Routes = [
-    { path: '', component: HomeComponent, pathMatch: 'full' }
-]
+const routes = [
+    {path: '', component: LoginComponent}
+];
 
 @NgModule({
   declarations: [
-    HomeComponent
+    LoginComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     NgbModule
   ],
-  bootstrap: [HomeComponent]
+  bootstrap: [LoginComponent]
 })
-export class HomeModule { }
+export class LoginModule { }
