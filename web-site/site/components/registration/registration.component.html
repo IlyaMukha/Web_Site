@@ -1,4 +1,88 @@
 <div>Registration page</div>
 <button routerLink="/login" >Back to login</button>
-<div>Registration form</div>
-<button>Registration</button>
+<div>
+    <form [formGroup]="registrationForm">
+        <div>
+            <label>Name</label>
+            <div>
+                <input formControlName="name">
+            </div>
+        </div>
+        <div>
+            <label>Surname</label>
+            <div>
+                <input formControlName="surname">
+            </div>
+        </div>
+        <div>
+            <label>Patronymic</label>
+            <div>
+                <input formControlName="patronymic">
+            </div>
+        </div>
+        <div>
+            <label>Date of Birth*</label>
+            <div>
+                <input type="date" formControlName="DOB">
+            </div>
+        </div>
+        <div>
+            <label>Email</label>
+            <div>
+                <input type="email" formControlName="email">
+            </div>
+        </div>
+        <div>
+            <label>Password</label>
+            <div>
+                <input type="password" formControlName="password">
+            </div>
+        </div>
+        <div>
+            <label>Password_1</label>
+            <div>
+                <input type="password" formControlName="password1">
+            </div>
+        </div>
+        <div>
+            <label>Phone Number</label>
+            <div>
+                <input formControlName="phoneNumber">
+            </div>
+        </div>
+        <div>
+            <label>Sex</label>
+            <div>
+                <!-- <input formControlName="sex"> -->
+                <input type="text" list="list">
+                <datalist id="list">
+                    <option *ngFor="let i of sexes" value={{i}}>
+                        {{i}}
+                    </option>
+                </datalist>
+            </div>
+        </div>
+        <div>
+            <label>Education Form</label>
+            <div>
+                <input formControlName="educationform">
+            </div>
+        </div>
+        <div>
+            <label>Free / Payd</label>
+            <div>
+                <input formControlName="ispayd">
+            </div>
+        </div>
+        <div>
+            <label>Group</label>
+            <div>
+                <input type="number" formControlName="groupnumber">
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" [disabled]="registrationForm.invalid" (click)="registration()" >Registration</button>
+        </div>
+    </form>
+</div>
