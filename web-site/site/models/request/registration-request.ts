@@ -26,3 +26,12 @@ export class RegistrationRequest{
         this.DOB = DOB;
     }
 }
+export class Qwe{
+    public age: number;
+    public name: string;
+
+    constructor(age: number, name: string){
+        this.age = age;
+        this.name = name;
+    }
+}

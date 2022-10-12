@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { RegistrationRequest } from 'site/models/request/registration-request';
+import { Qwe, RegistrationRequest } from 'site/models/request/registration-request';
+import { AccountServise } from 'site/services/account.service';
 
 @Component({
   selector: 'i-registration',
@@ -24,6 +26,9 @@ export class RegistrationComponent {
   });
   public sexes:string[] = ["M", "W"]
 
+  constructor(private http: HttpClient){
+  }
+
 
 
   public registration(){
@@ -41,7 +46,16 @@ export class RegistrationComponent {
         this.registrationForm.value['groupnumber'],
         this.registrationForm.value['DOB']
       );
-      console.log(request);
+      this.Registration(request);
     }
   }
+
+  public Registration(body:RegistrationRequest){
+    this.http.post('https://localhost:5001/Test/TestPost', body).subscribe({next:(data:any) => 
+    {
+       console.log(data);
+        
+    }});
+   
+}
 }
